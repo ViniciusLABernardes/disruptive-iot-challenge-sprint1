@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Painel UWB - Distâncias das Âncoras</title>
+  <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f4f4f4;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    .ancora {
+      margin: 10px auto;
+      padding: 15px;
+      border-radius: 10px;
+      background: white;
+      max-width: 300px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+  <h1>📡 Painel UWB - Distância das Âncoras</h1>
+  <div id="ancora1" class="ancora">Ancora 1: aguardando dados...</div>
+  <div id="ancora2" class="ancora">Ancora 2: aguardando dados...</div>
+  <div id="ancora3" class="ancora">Ancora 3: aguardando dados...</div>
+
+  <script>
+    const client = mqtt.connect("wss://broker.hivemq.com:8884/mqtt");
+
+    client.on("connect", () => {
+      console.log("Conectado ao broker MQTT!");
+      client.subscribe("fiap/iot/uwb/#");
+    });
+
+    client.on("message", (topic, message) => {
+      try {
+        const data = JSON.parse(message.toString());
+        const ancora = data.ancora;
+        const distancia = data.distancia.toFixed(2);
+        const div = document.getElementById(ancora);
+        if (div) {
+          div.textContent = `${ancora.charAt(0).toUpperCase() + ancora.slice(1)}: ${distancia} metros`;
+        }
+      } catch (err) {
+        console.error("Erro ao processar mensagem:", err);
+      }
+    });
+  </script>
+</body>
+</html>

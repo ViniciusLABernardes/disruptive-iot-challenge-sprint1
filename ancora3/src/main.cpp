@@ -12,7 +12,7 @@ const char* ID_MQTT = "ancora3";
 const char* TOPIC_PUBLISH = "fiap/iot/uwb/ancora3";
 
 #define PIN_LED 15
-#define PUBLISH_DELAY 2000
+#define PUBLISH_DELAY 10000
 #define TAMANHO 200
 
 WiFiClient espClient;
@@ -64,7 +64,7 @@ void loop() {
 
   if (millis() - publishUpdate >= PUBLISH_DELAY) {
     publishUpdate = millis();
-    dist_ancora3 = 7.2 + random(-10, 10) * 0.1;
+    dist_ancora3 = random(500, 2000) / 100.0;
 
     StaticJsonDocument<TAMANHO> doc;
     doc["distancia"] = dist_ancora3;
