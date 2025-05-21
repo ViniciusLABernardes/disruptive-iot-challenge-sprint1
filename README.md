@@ -12,6 +12,7 @@
 - Rafael Romanini de Oliveira RM554637 TURMA 2TDSPZ
 
 ## Procedimentos para rodar a simulação:
+- ### Tenha uma conta no wokwi
 - ### Instale as extensões Wokwi Simulator e PlatformIO IDE
 - ### Rode os comandos no terminal dentro da pasta raiz do projeto:
 - - pip install platformio
