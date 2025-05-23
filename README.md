@@ -34,3 +34,28 @@
 ### Página web recendo as distancias por requisição MQTT:
 
 ![iotweb](https://github.com/user-attachments/assets/7c05676f-6e9a-41d0-aa43-90fab62e8771)
+
+
+## Tecnologias Utilizadas :
+⚙️ Hardware Simulado
+
+    ESP32: Microcontrolador principal usado para simular as âncoras (receptores).
+
+
+💻 Ambiente de Desenvolvimento
+
+    PlatformIO: Ambiente de desenvolvimento baseado em VS Code, usado para compilar, programar e simular os ESP32.
+
+    Wokwi: Ferramenta online que simula eletrônica, incluindo ESP32 e sensores, usada para criar e rodar os diagramas de simulação (diagram.json, wokwi.toml).
+
+📡 Comunicação
+
+    MQTT: Protocolo leve de mensagens utilizado para enviar as distâncias medidas pelas âncoras para um broker.
+
+    Broker MQTT (HiveMQ público): Usado como ponto central de troca de mensagens entre as âncoras e o sistema externo.
+
+🌐 Frontend Web
+
+    HTML + JavaScript: Painel web simples para exibir em tempo real as distâncias recebidas de cada âncora via MQTT.
+
+    MQTT.js: Biblioteca JavaScript usada no navegador para se conectar ao broker MQTT e escutar mensagens dos tópicos.
