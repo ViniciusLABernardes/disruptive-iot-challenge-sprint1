@@ -22,3 +22,13 @@
 - ### Abra cada pasta ancora em uma janela diferente no vscode
 - ### Abra a pagina index.html do projeto
  ### Pronto, agora você verá um dashboard trazendo as informações da distancia da moto(atualmente mockada) de cada âncora(atualmente simulada)
+
+ ## Resultados:
+
+ ### Âncoras sendo simuladas:
+
+![diagramasrodando](https://github.com/user-attachments/assets/bf8982d4-dd99-4c8c-ac7d-542feb1a66b1)
+
+### Página web recendo as distancias por requisição MQTT:
+
+![iotweb](https://github.com/user-attachments/assets/7c05676f-6e9a-41d0-aa43-90fab62e8771)
